@@ -8,11 +8,17 @@
 </head>
 <body>
     <div class="container">
-        <div class="left-pane">
-            <textarea id="inputArea" placeholder="Enter table columns..."></textarea>
-        </div>
-        <div class="right-pane">
-            <div id="outputArea"></div>
+        <header>
+            <h1>SQL Query Builder</h1>
+            <p>Enter table columns to generate SQL queries</p>
+        </header>
+        <div class="main-content">
+            <div class="left-pane">
+                <textarea id="inputArea" placeholder="Enter table columns, separated by commas..."></textarea>
+            </div>
+            <div class="right-pane">
+                <div id="outputArea" class="output-box"></div>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>

@@ -1,7 +1,7 @@
 const tables = {
     "PER_ALL_PEOPLE_F": ["PERSON_ID", "PRIMARY_NID_NUMBER"],
     "PER_PERSON_NAMES_F": ["PERSON_ID", "LAST_NAME", "FIRST_NAME"],
-    "PER_NUDGES":["PERSON_ID", "NUDGE_ID", "NUDGE_TYPE_CODE"],
+    "PER_NUDGES": ["PERSON_ID", "NUDGE_ID", "NUDGE_TYPE_CODE"],
 };
 
 function findTable(column) {
