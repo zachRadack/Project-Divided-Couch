@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <key_element name="FAI_PROMPT_CODES">
+    <value>PROMPT_CODE_ID</value>
+    <value>USE_CASE_ID</value>
+    <value>PROMPT_CODE</value>
+    <value>SEED_DATA_SOURCE</value>
+    <value>ORA_SEED_SET1</value>
+    <value>ORA_SEED_SET2</value>
+    <value>MODULE_ID</value>
+    <value>CREATED_BY</value>
+    <value>CREATION_DATE</value>
+    <value>LAST_UPDATED_BY</value>
+    <value>LAST_UPDATE_DATE</value>
+    <value>LAST_UPDATE_LOGIN</value>
+    <value>OBJECT_VERSION_NUMBER</value>
+  </key_element>
+  <key_element name="FAI_PROMPT_TMPLS">
+    <value>PROMPT_TMPL_ID</value>
+    <value>PROMPT_CODE_ID</value>
+    <value>PROMPT_TMPL</value>
+    <value>PROMPT_TMPL_VERSION</value>
+    <value>MODEL_CODE</value>
+    <value>MODEL_VERSION</value>
+    <value>ENABLED_FLAG</value>
+    <value>SEED_DATA_SOURCE</value>
+    <value>ORA_SEED_SET1</value>
+    <value>ORA_SEED_SET2</value>
+    <value>MODULE_ID</value>
+    <value>CREATED_BY</value>
+    <value>CREATION_DATE</value>
+    <value>LAST_UPDATED_BY</value>
+    <value>LAST_UPDATE_DATE</value>
+    <value>LAST_UPDATE_LOGIN</value>
+    <value>OBJECT_VERSION_NUMBER</value>
+  </key_element>
+  <key_element name="FAI_TAGS">
+    <value>TAG_ID</value>
+    <value>TAG_CODE</value>
+    <value>SEED_DATA_SOURCE</value>
+    <value>ORA_SEED_SET1</value>
+    <value>ORA_SEED_SET2</value>
+    <value>MODULE_ID</value>
+    <value>CREATED_BY</value>
+    <value>CREATION_DATE</value>
+    <value>LAST_UPDATED_BY</value>
+    <value>LAST_UPDATE_DATE</value>
+    <value>LAST_UPDATE_LOGIN</value>
+    <value>OBJECT_VERSION_NUMBER</value>
+  </key_element>
+  <key_element name="FAI_TAG_VALUES">
+    <value>TAG_VALUE_ID</value>
+    <value>TAG_ID</value>
+    <value>TAG_VALUE</value>
+    <value>SEED_DATA_SOURCE</value>
+    <value>ORA_SEED_SET1</value>
+    <value>ORA_SEED_SET2</value>
+    <value>MODULE_ID</value>
+    <value>CREATED_BY</value>
+    <value>CREATION_DATE</value>
+    <value>LAST_UPDATED_BY</value>
+    <value>LAST_UPDATE_DATE</value>
+    <value>LAST_UPDATE_LOGIN</value>
+    <value>OBJECT_VERSION_NUMBER</value>
+  </key_element>
+  <key_element name="FAI_TAG_VALUE_USAGES">
+    <value>TAG_VALUE_USAGE_ID</value>
+    <value>TAG_VALUE_ID</value>
+    <value>PROMPT_TMPL_ID</value>
+    <value>SEED_DATA_SOURCE</value>
+    <value>ORA_SEED_SET1</value>
+    <value>ORA_SEED_SET2</value>
+    <value>MODULE_ID</value>
+    <value>CREATED_BY</value>
+    <value>CREATION_DATE</value>
+    <value>LAST_UPDATED_BY</value>
+    <value>LAST_UPDATE_DATE</value>
+    <value>LAST_UPDATE_LOGIN</value>
+    <value>OBJECT_VERSION_NUMBER</value>
+  </key_element>
+  <key_element name="FAI_TMPL_MDL_PARAMS">
+    <value>TMPL_MDL_PARAM_ID</value>
+    <value>TMPL_MDL_PARAM_CODE</value>
+    <value>TMPL_MDL_PARAM_TYPE</value>
+    <value>PROMPT_TMPL_ID</value>
+    <value>CLOB_VALUE</value>
+    <value>NUMBER_VALUE</value>
+    <value>VARCHAR2_VALUE</value>
+    <value>TIMESTAMP_VALUE</value>
+    <value>SEED_DATA_SOURCE</value>
+    <value>ORA_SEED_SET1</value>
+    <value>ORA_SEED_SET2</value>
+    <value>MODULE_ID</value>
+    <value>CREATED_BY</value>
+    <value>CREATION_DATE</value>
+    <value>LAST_UPDATED_BY</value>
+    <value>LAST_UPDATE_DATE</value>
+    <value>LAST_UPDATE_LOGIN</value>
+    <value>OBJECT_VERSION_NUMBER</value>
+  </key_element>
+  <key_element name="FAI_USE_CASES">
+    <value>USE_CASE_ID</value>
+    <value>USE_CASE_IDENTIFIER</value>
+    <value>SEED_DATA_SOURCE</value>
+    <value>ORA_SEED_SET1</value>
+    <value>ORA_SEED_SET2</value>
+    <value>MODULE_ID</value>
+    <value>CREATED_BY</value>
+    <value>CREATION_DATE</value>
+    <value>LAST_UPDATED_BY</value>
+    <value>LAST_UPDATE_DATE</value>
+    <value>LAST_UPDATE_LOGIN</value>
+    <value>OBJECT_VERSION_NUMBER</value>
+  </key_element>
+</root>
