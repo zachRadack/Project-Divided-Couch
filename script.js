@@ -1,70 +1,52 @@
-const tables = {
-    "PER_ALL_PEOPLE_F": ["PERSON_ID", "PRIMARY_NID_NUMBER"],
-    "PER_PERSON_NAMES_F": ["PERSON_ID", "LAST_NAME", "FIRST_NAME"],
-    "PER_NUDGES": ["PERSON_ID", "NUDGE_ID", "NUDGE_TYPE_CODE"],
-};
+document.getElementById('inputColumns').addEventListener('input', buildQuery);
 
-function findTable(column) {
-    for (const table in tables) {
-        if (tables[table].includes(column)) {
-            return table;
-        }
-    }
-    return null;
-}
-
-document.getElementById('inputArea').addEventListener('input', function () {
-    const input = this.value.trim();
+function buildQuery() {
+    const input = document.getElementById('inputColumns').value;
     const outputArea = document.getElementById('outputArea');
+    const columns = input.split(',').map(col => col.trim()).filter(col => col);
 
-    if (input === "") {
-        outputArea.textContent = "";
+    if (columns.length === 0) {
+        outputArea.textContent = '';
         return;
     }
 
-    const columns = input.split(',').map(col => col.trim());
-    if (columns.length < 2) {
-        outputArea.textContent = "Please enter at least two columns.";
-        return;
-    }
+    const tables = {
+        "PER_ALL_PEOPLE_F": ["PERSON_ID", "PRIMARY_NID_NUMBER"],
+        "PER_PERSON_NAMES_F": ["PERSON_ID", "LAST_NAME", "FIRST_NAME"],
+        "PER_NUDGES": ["PERSON_ID", "NUDGE_ID", "NUDGE_TYPE_CODE"],
+        "PER_people": ["NUDGE_ID", "NUDGE_TYPE_CODE","columnB"],
+    };
 
-    let tablesUsed = {};
-    let selectStatements = [];
-    let whereStatements = new Set();
+    let selectedTables = new Set();
+    let columnMap = {};
 
-    columns.forEach(column => {
-        const table = findTable(column);
-        if (table) {
-            if (!tablesUsed[table]) {
-                tablesUsed[table] = [];
+    columns.forEach(col => {
+        for (let table in tables) {
+            if (tables[table].includes(col)) {
+                selectedTables.add(table);
+                columnMap[col] = table;
             }
-            tablesUsed[table].push(column);
-        } else {
-            outputArea.textContent = `Column "${column}" not found in any table.`;
-            return;
         }
     });
 
-    let tableAliases = Object.keys(tablesUsed).map((table, index) => ({
-        table,
-        alias: `t${index + 1}`
-    }));
+    selectedTables = Array.from(selectedTables);
 
-    tableAliases.forEach(({ table, alias }) => {
-        selectStatements.push(...tablesUsed[table].map(col => `${alias}.${col}`));
-    });
-
-    for (let i = 0; i < tableAliases.length - 1; i++) {
-        whereStatements.add(`${tableAliases[i].alias}.PERSON_ID = ${tableAliases[i + 1].alias}.PERSON_ID`);
+    if (selectedTables.length < 2) {
+        outputArea.textContent = 'Not enough columns to form a join.';
+        return;
     }
 
-    const sqlQuery = `
-select 
-${selectStatements.join(',\n')}
-from
-${tableAliases.map(({ table, alias }) => `${table} ${alias}`).join(',\n')}
-where
-${[...whereStatements].join('\nand\n')}`;
+    const query = `
+        SELECT 
+        ${columns.map(col => `${columnMap[col]}.${col}`).join(',\n')}
+        FROM
+        ${selectedTables.map((table, index) => `${table} t${index + 1}`).join(',\n')}
+        WHERE
+        ${selectedTables.map((table, index) => {
+            if (index === selectedTables.length - 1) return '';
+            return `t${index + 1}.PERSON_ID = t${index + 2}.PERSON_ID`;
+        }).filter(Boolean).join('\nAND\n')}
+    `;
 
-    outputArea.textContent = sqlQuery;
-});
+    outputArea.textContent = query.trim();
+}
